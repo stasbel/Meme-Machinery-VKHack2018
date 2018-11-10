@@ -1,0 +1,9 @@
+*.egg-info
+.idea/
+*.pth
+images/
+*.jpg
+*.jpeg
+*.png
+*__pycache__*
+*.npy

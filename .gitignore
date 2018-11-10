@@ -7,3 +7,5 @@ images/
 *.png
 *__pycache__*
 *.npy
+.DS_Store
+index/

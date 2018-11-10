@@ -1,3 +1,5 @@
+"""Makes one sample for text meme generator."""
+
 import argparse
 import logging
 from pathlib import Path

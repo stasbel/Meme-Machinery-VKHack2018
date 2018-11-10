@@ -8,14 +8,14 @@ with open(path.join(_here, 'README.md'), encoding='utf-8') as f:
     _long_description = f.read()
 
 setup(
-    name='Meme-Generator-VKHack2018',
+    name='Meme-Machinery-VKHack2018',
     version='0.0.1',
 
     description='Simple meme generator project for VK Hackathon 2018',
     long_description=_long_description,
     long_description_content_type='text/markdown',
 
-    url='git@github.com:stasbel/Meme-Generator-VKHack2018.git',
+    url='git@github.com:stasbel/Meme-Machinery-VKHack2018.git',
 
     author='Stanislav Belyaev',
     author_email='stasbelyaev96@gmail.com',

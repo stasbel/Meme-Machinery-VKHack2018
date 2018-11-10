@@ -1,3 +1,5 @@
+"""Downloads prescribed data from the Internet, embed and store it."""
+
 import logging
 
 import numpy as np

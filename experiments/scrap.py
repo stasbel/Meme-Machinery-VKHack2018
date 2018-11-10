@@ -1,3 +1,5 @@
+"""Parses the Reddit memes subreddits and store it."""
+
 import configparser
 import logging
 

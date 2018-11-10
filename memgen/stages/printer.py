@@ -40,10 +40,10 @@ class Printer:
                         isLast = True
 
                     next_cut = int(next_cut)
-                    if next_cut == len(text) or text[next_cut] == " ":
+                    if next_cut >= len(text) or text[next_cut] == " ":
                         pass
                     else:
-                        while text[next_cut] != " ":
+                        while next_cut < len(text) and text[next_cut] != " ":
                             next_cut += 1
 
                     line = text[cut:next_cut].strip()

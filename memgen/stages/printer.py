@@ -51,7 +51,7 @@ class Printer:
                     w, h = draw.textsize(line, font)
                     if not isLast and w > image.width:
                         next_cut -= 1
-                        while text[next_cut] != " ":
+                        while next_cut < len(text) and text[next_cut] != " ":
                             next_cut -= 1
 
                     lastCut = next_cut

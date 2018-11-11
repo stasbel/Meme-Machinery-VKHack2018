@@ -79,12 +79,15 @@ class VKBot:
                         self._send_text(event, self.FAILED_REPLY)
 
                     if random.random() < self.p_generate \
-                            and self.generator1 and self.generator2:
+                            and self.generator1 and self.generator2 \
+                            and reply_image:
                         self._send_text(event, self.GEN_REPLY)
                         if random.random() < self.p_choose:
-                            self._sent_image(event, self.generator1(image))
+                            self._sent_image(event,
+                                             self.generator1(reply_image))
                         else:
-                            self._sent_image(event, self.generator2(image))
+                            self._sent_image(event,
+                                             self.generator2(reply_image))
                 else:
                     self._send_text(event, self.INVALID_REPLY)
 

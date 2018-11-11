@@ -12,8 +12,8 @@ logger = logging.getLogger(__name__)
 
 class VKBot:
     INVALID_REPLY = 'Пожалуйста, пришлите нам фотографию или текст.'
-    GEN_REPLY = 'Посмотри, какой мем мы сгенерировали!'
-    FAILED_REPLY = 'Ничего не удалось найти. Пожалуйтса, попробуйте еще раз.'
+    GEN_REPLY = 'Посмотри, какой мем нам удалось сгенерировать!'
+    FAILED_REPLY = 'Ничего не удалось найти. Пожалуйста, попробуйте еще раз.'
 
     def __init__(self, login, password, token, group_id, album_id,
                  text2desc=lambda t: (t, None),

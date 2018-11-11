@@ -11,8 +11,9 @@ logger = logging.getLogger(__name__)
 
 
 class VKBot:
-    FAILED_REPLY = 'Пожалуйста, пришлите нам фотографию или текст.'
+    INVALID_REPLY = 'Пожалуйста, пришлите нам фотографию или текст.'
     GEN_REPLY = 'Посмотри, какой мем мы сгенерировали!'
+    FAILED_REPLY = 'Ничего не удалось найти. Пожалуйтса, попробуйте еще раз.'
 
     def __init__(self, login, password, token, group_id, album_id,
                  text2desc=lambda t: (t, None),
@@ -61,6 +62,10 @@ class VKBot:
 
                     self._send_text(event, reply_text)
                     self._sent_image(event, reply_image)
+
+                    if reply_text is None and reply_image is None:
+                        self._send_text(event, self.FAILED_REPLY)
+
                 elif url is not None:
                     logger.info(f'Receive image.')
 
@@ -70,14 +75,18 @@ class VKBot:
                     self._send_text(event, reply_text)
                     self._sent_image(event, reply_image)
 
-                    if random.random() < self.p_generate:
+                    if reply_text is None and reply_image is None:
+                        self._send_text(event, self.FAILED_REPLY)
+
+                    if random.random() < self.p_generate \
+                            and self.generator1 and self.generator2:
                         self._send_text(event, self.GEN_REPLY)
                         if random.random() < self.p_choose:
                             self._sent_image(event, self.generator1(image))
                         else:
                             self._sent_image(event, self.generator2(image))
                 else:
-                    self._send_text(event, self.FAILED_REPLY)
+                    self._send_text(event, self.INVALID_REPLY)
 
     @staticmethod
     def _fetch_url(event):
@@ -90,7 +99,13 @@ class VKBot:
             return None
 
         photo = photos[0]
-        url = next(s['url'] for s in photo['sizes'] if s['type'] == 'z')
+        last, cs = None, None
+        for s in photo['sizes']:
+            if last is None or ord(s['type']) > last:
+                cs = s
+                last = ord(s['type'])
+
+        url = cs['url']
         return url
 
     def _send_text(self, event, text):

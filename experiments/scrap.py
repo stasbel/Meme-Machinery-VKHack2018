@@ -5,17 +5,17 @@ import logging
 
 import torch
 
-from memgen.scrapper.reddit import RedditScrapper
+from mem.gen.scrapper.reddit import RedditScrapper
 
 logger = logging.getLogger(__name__)
 
+CONFIG_FILE = 'config.ini'
 SUBREDDITS = [
     'AdviceAnimals', 'MemeEconomy', 'ComedyCemetery', 'memes', 'dankmemes',
     'PrequelMemes', 'terriblefacebookmemes', 'PewdiepieSubmissions', 'funny',
     'teenagers', '2meirl4meirl', 'wholesomememes', 'starterpacks', 'meirl'
 ]
 META_PATH = 'reddit_data.pth'
-_CONFIG_FILE = 'config.ini'
 
 
 def main(config):
@@ -32,7 +32,7 @@ def main(config):
 
 def _parse_config():
     config = configparser.ConfigParser()
-    config.read(_CONFIG_FILE)
+    config.read(CONFIG_FILE)
 
     logging.basicConfig(
         format='%(asctime)s | %(message)s',

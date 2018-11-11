@@ -6,7 +6,7 @@ import numpy as np
 import torch
 
 from experiments.scrap import META_PATH
-from memgen.stages.extractor import Extractor
+from mem.gen.stages.extractor import Extractor
 
 logger = logging.getLogger(__name__)
 

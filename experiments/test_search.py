@@ -2,7 +2,7 @@
 
 import logging
 
-from memsearch.text import TextSearcher
+from mem.search.text import TextSearcher
 
 logger = logging.getLogger(__name__)
 

@@ -20,5 +20,5 @@ setup(
     author='Stanislav Belyaev',
     author_email='stasbelyaev96@gmail.com',
 
-    packages=find_packages(exclude=['contrib', 'docs', 'tests'])
+    packages=find_packages(exclude=['contrib', 'docs', 'tests', 'experiments'])
 )

@@ -8,8 +8,8 @@ import tqdm
 from PIL import Image
 from requests import get
 
-from memgen.scrapper.reddit import RedditScrapper
-from memgen.stages.embedder import Embedder
+from mem.gen.scrapper.reddit import RedditScrapper
+from mem.gen.stages.embedder import Embedder
 
 logger = logging.getLogger(__name__)
 
@@ -37,9 +37,18 @@ class Extractor:
 
         return new_data, np.stack(m)
 
+    @staticmethod
+    def download(url):
+        try:
+            response = get(url, stream=True)
+            response.raw.decode_content = True
+            return Image.open(response.raw)
+        except OSError:
+            return None
+
     def _extract_one(self, args):
         post, i = args
-        image = self._download(post.url)
+        image = self.download(post.url)
         # image = Image.open(self.base_folder / f'{i}.png')
         if image is None:
             return None, None
@@ -56,15 +65,6 @@ class Extractor:
         new_post = post._replace(file_name=file_name, caption=caption)
 
         return new_post, e
-
-    @staticmethod
-    def _download(url):
-        try:
-            response = get(url, stream=True)
-            response.raw.decode_content = True
-            return Image.open(response.raw)
-        except OSError:
-            return None
 
     def _extract_caption(self, image, post):
         caption = pytesseract.image_to_string(self._darken_background(image))

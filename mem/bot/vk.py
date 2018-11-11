@@ -5,7 +5,7 @@ import vk_api
 from vk_api import VkUpload
 from vk_api.bot_longpoll import VkBotLongPoll, VkBotEventType
 
-from memgen.stages.extractor import Extractor
+from mem.gen.stages import Extractor
 
 logger = logging.getLogger(__name__)
 

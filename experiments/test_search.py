@@ -1,8 +1,8 @@
-"""Tests memsearch engine."""
+"""Tests search engine."""
 
 import logging
 
-from memsearch.text import TextSearcher
+from mem.search.text import TextSearcher
 
 logger = logging.getLogger(__name__)
 
@@ -10,9 +10,8 @@ logger = logging.getLogger(__name__)
 def main(_):
     searcher = TextSearcher()
 
-    # searcher.build_index([(0, 'mam'), (1, 'dad')])
-
-    # searcher.clear()
+    searcher.build_index([(0, 'mam'), (1, 'dad')])
+    searcher.clear()
 
     query = 'mam'
     result = searcher.search(query)

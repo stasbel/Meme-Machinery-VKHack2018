@@ -1,7 +1,7 @@
 import numpy as np
 from sklearn.neighbors import KDTree
 
-from mem.gen.stages.embedder import Embedder
+from memgen.stages.embedder import Embedder
 
 
 class Matcher:

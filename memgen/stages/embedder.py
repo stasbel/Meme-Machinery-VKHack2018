@@ -3,7 +3,7 @@ import torchvision.models as models
 import torchvision.transforms as transforms
 from torch import nn
 
-from mem.gen.transforms import Thumbnail
+from memgen.transforms import Thumbnail
 
 
 class _ResNetFeatureExtractor(nn.Module):

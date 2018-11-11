@@ -9,8 +9,8 @@ import torch
 from PIL import Image
 
 from experiments.download import MATRIX_PATH, NEW_META_PATH
-from mem.gen.sampler import TextSampler
-from mem.gen.stages.printer import Printer
+from memgen.sampler import TextSampler
+from memgen.stages.printer import Printer
 
 logger = logging.getLogger(__name__)
 

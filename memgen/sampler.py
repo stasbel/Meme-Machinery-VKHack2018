@@ -1,7 +1,7 @@
 import numpy as np
 from numpy import random
 
-from mem.gen.stages.matcher import Matcher
+from memgen.stages.matcher import Matcher
 
 
 class TextSampler:

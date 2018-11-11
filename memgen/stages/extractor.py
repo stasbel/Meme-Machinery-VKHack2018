@@ -8,8 +8,8 @@ import tqdm
 from PIL import Image
 from requests import get
 
-from mem.gen.scrapper.reddit import RedditScrapper
-from mem.gen.stages.embedder import Embedder
+from memgen.scrapper.reddit import RedditScrapper
+from memgen.stages.embedder import Embedder
 
 logger = logging.getLogger(__name__)
 

@@ -1,8 +1,8 @@
-"""Tests search engine."""
+"""Tests memsearch engine."""
 
 import logging
 
-from mem.search.text import TextSearcher
+from memsearch.text import TextSearcher
 
 logger = logging.getLogger(__name__)
 

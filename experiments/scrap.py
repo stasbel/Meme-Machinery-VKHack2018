@@ -5,7 +5,7 @@ import logging
 
 import torch
 
-from mem.gen.scrapper.reddit import RedditScrapper
+from memgen.scrapper.reddit import RedditScrapper
 
 logger = logging.getLogger(__name__)
 

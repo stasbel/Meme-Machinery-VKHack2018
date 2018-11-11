@@ -1,10 +1,10 @@
-"""Starts BK bot and listen to messages."""
+"""Starts BK membot and listen to messages."""
 
 import configparser
 import logging
 
 from experiments.scrap import CONFIG_FILE
-from mem.bot.vk import VKBot
+from membot.vk import VKBot
 
 
 def main(config):

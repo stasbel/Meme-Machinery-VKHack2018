@@ -1,4 +1,4 @@
-# Meme-Generator-VKHack2018
+# Meme-Machinery-VKHack2018
 
 Meme machinery for project on VK Hackathon 2018
 
